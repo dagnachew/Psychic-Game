@@ -6,42 +6,47 @@ let wins = 0;
 let losses = 0;
 let guesses = 10;
 
+// variables for ids in html
+let winsText = document.getElementById('winsText');
+let lossesText = document.getElementById('lossesText');
+let guessesText = document.getElementById('guessesText');
+let userGuessesText = document.getElementById('userGuessText');
 
     
-    // random guess
-    randomGuess = letter[Math.floor(Math.random() * letter.length)];
+// random guess
+randomGuess = letter[Math.floor(Math.random() * letter.length)];
 
-    function Guess() {
-        randomGuess = letter[Math.floor(Math.random() * letter.length)];  
-    }
+function Guess() {
+    randomGuess = letter[Math.floor(Math.random() * letter.length)];  
+}
 
-   // logic
+// logic
 
-   //Getting input from user
-   document.onkeypress = function(event) {
-    var userGuess = event.key;
+//Getting input from user
+document.onkeypress = function(event) {
+var userGuess = event.key;
 
-    //registering win
-    if(userGuess === randomGuess){
-        wins++;
-        guesses = 10;
-    }
+//registering win
+if(userGuess === randomGuess){
+    wins++;
+    guesses = 10;
+}
 
-    Guess();
-    //registering loss
-    if (userGuess !== randomGuess) {
-        guesses--;
-    }
+Guess();
+//registering loss
+if (userGuess !== randomGuess) {
+    guesses--;
+}
 
-    // To make user guess runs out and reset
-    if(guesses === 0){
-        losses++;
-        guesses = 10;
-    }
+// To make user guess runs out and reset
+if(guesses === 0){
+    losses++;
+    guesses = 10;
+}
 
-    //HTML output
-    document.getElementById('wins').innerHTML = "Wins: " + wins;
-    document.getElementById('losses').innerHTML = "losses: " + losses;
-    document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
-    document.getElementById('userGuess').innerHTML = "Your guesses so far: " + userGuess;
+//HTML output
+winsText.innerHTML = "Wins: " + wins;
+lossesText.innerHTML = "losses: " + losses;
+guessesText.innerHTML = "Guesses left: " + guesses;
+userGuessesText.innerHTML = "Your guesses so far: " + userGuess;
 }
