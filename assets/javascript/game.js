@@ -18,7 +18,7 @@ let userGuessesText = document.getElementById('userGuessText');
 randomGuess = letter[Math.floor(Math.random() * letter.length)];
 
 
-// logic
+// ====== logic =========
 
 //Getting input from user
 document.onkeypress = function(event) {
@@ -43,9 +43,19 @@ if(guesses === 0){
     guesses = 10;
 }
 
+//To display user keypress array 
+if (keyPressAr.indexOf(userGuess) > 0) {
+
+} else {
+      //this pushes the players incorrect guess to the userArr and writes it to the HTML
+      keyPressAr.push(userGuess);
+      document.querySelector('#userGuessText').textContent = keyPressAr;
+}
+
+
 //HTML output
 winsText.innerHTML = "Wins: " + wins;
 lossesText.innerHTML = "Losses: " + losses;
 guessesText.innerHTML = "Guesses left: " + guesses;
-userGuessesText.innerHTML = "Your guesses so far: " + userGuess;
+userGuessesText.innerHTML = "Your guesses so far: " + keyPressAr;
 }
