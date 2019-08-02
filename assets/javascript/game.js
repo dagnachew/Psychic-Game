@@ -44,12 +44,12 @@ if(guesses === 0){
 }
 
 //To display user keypress array 
-if (keyPressAr.indexOf(userGuess) > 0) {
-
+if (keyPressAr.indexOf(userGuess) >= 0) {
+    
 } else {
-      //this pushes the players incorrect guess to the userArr and writes it to the HTML
       keyPressAr.push(userGuess);
-      document.querySelector('#userGuessText').textContent = keyPressAr;
+      let userArr = document.querySelector('#userGuessText');
+      userArr.textContent = keyPressAr;
 }
 
 
